@@ -34,7 +34,7 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Review by {self.user.username} for {self.listing.title}'
+        return f"Review by {self.user_id.username} for {self.property_id.title}"
 
 class Booking(models.Model):
     booking_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -46,4 +46,4 @@ class Booking(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Booking by {self.user.username} for {self.listing.title}'
+        return f"Booking by {self.user_id.username} for {self.property_id.title}"
